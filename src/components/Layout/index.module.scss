@@ -1,0 +1,19 @@
+@import "../../util/styles/colors.scss";
+@import "../../util/styles/typography.scss";
+@import "../../util/styles/spacing.scss";
+
+.header {
+    text-align: center;
+    background-color: $primary-color;
+    color: $white;
+    padding: 20px;
+    border-bottom: 1px solid $border-color;
+}
+
+.header-title {
+    font-size: $bigger;
+}
+
+.main {
+    margin: $normal-spacing;
+}

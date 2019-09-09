@@ -1,0 +1,45 @@
+@import '../../util/styles/colors.scss';
+@import '../../util/styles/icons.scss';
+
+.wrapper {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider {
+    width: 100%;
+    display: flex;
+}
+
+.slide{
+    display: flex;
+    align-self: center;
+}
+
+%arrow {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 20%;
+    cursor: pointer;
+}
+.arrow-prev {
+    @extend %arrow;
+    left: 0;
+}
+
+.arrow-next {
+    @extend %arrow;
+    right: 0;
+}
+
+.icon {
+    @extend %icon;
+    height: 100%;
+    width: 60px;
+}
+
+.slideWrapper {
+    margin: auto;
+}

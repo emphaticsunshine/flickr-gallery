@@ -1,0 +1,39 @@
+@import '../../util/styles/breakpoints.scss';
+@import '../../util/styles/spacing.scss';
+@import '../../util/styles/colors.scss';
+
+.grid {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-evenly;
+    overflow: hidden;
+}
+
+.cell {
+    cursor: pointer;
+    border: 1px solid $border-color;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    margin: $small-spacing;
+
+    @media (#{$large}) {
+        will-change: transform;
+        transition: 0.2s transform ease-in;
+        &:hover, &.selected {
+            transform: scale(1.1);
+        }
+    }
+
+    @media (#{$small-up}) {
+        flex: 1 0 auto;
+        align-self: stretch;
+        width: auto;
+    }
+}
+
+.photo--big {
+    width: 100%;
+    margin: auto;
+}
+

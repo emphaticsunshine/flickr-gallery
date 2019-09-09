@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "New York",
+        "url": "/place/new york"
+    },
+    {
+        "id": 2,
+        "name": "Seattle",
+        "url": "/place/seattle"
+    },
+    {
+        "id": 4,
+        "name": "San Francisco",
+        "url": "/place/san francisco"
+    },
+    {
+        "id": 5,
+        "name": "Austin",
+        "url": "/place/austin"
+    }
+]
