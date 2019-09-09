@@ -75,6 +75,8 @@ export default function Carousel({
 
     // Adding effect to attach event for key down to slide to next or previous slide
     useEffect(() => {
+        // remove the event if it exists
+        keyControls && document.removeEventListener('keydown', checkKey, false);
         keyControls && document.addEventListener('keydown', checkKey, false);
         return () => keyControls && document.removeEventListener('keydown', checkKey, false);
     });
