@@ -1,7 +1,13 @@
 @import "../../util/styles/spacing.scss";
 @import "../../util/styles/typography.scss";
+@import "../../util/styles/colors.scss";
+
 .title {
     margin: $normal-spacing 0;
     text-transform: capitalize;
     font-size: $big;
+}
+
+.error {
+    color: $error-color;
 }

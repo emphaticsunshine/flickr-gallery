@@ -10,48 +10,33 @@ import useWidth from "../../hooks/useWidth";
 import styles from "./index.module.scss";
 const cx = classNames.bind(styles);
 
+const KEYS = {
+    "LEFT_ARROW": 37,
+    "RIGHT_ARROW": 39
+};
+
 export default function Carousel({
     data,
-    itemRenderer,
+    slideRenderer,
     selectedIdx,
     keyControls,
     animationDuration
 }) {
+    // set currentIdx to selectedIdx when sent while initializing
     const [currentIdx, setCurrentIdx] = useState(selectedIdx);
     const itemCount = data.length;
+    // used to track the width of carousel.
     const {ref, width} = useWidth();
-    const slider = useRef(null);
+
+    // reference to slider DOM to add transition later.
+    const sliderRef = useRef(null);
 
     const sliderStyles = {
+        // set width to n times width of sing;e slide
         width: width && itemCount * width,
+        // transform to set focus on current image
         transform: `translateX(-${currentIdx * width}px)`,
     };
-
-    function goToNextSlide() {
-        if(!isLast()) {
-            setCurrentIdx(currentIdx + 1)
-        }
-    }
-
-    function checkKey(evt) {
-        evt = evt || window.event;
-        switch(evt.keyCode) {
-            case 37:
-                goToPrevSlide();
-                break;
-            case 39:
-                goToNextSlide();
-                break;
-            default:
-                break;
-        }
-    }
-
-    function goToPrevSlide() {
-        if(!isFirst()) {
-            setCurrentIdx(currentIdx - 1);
-        }
-    }
 
     function isLast() {
         return currentIdx === itemCount - 1;
@@ -61,24 +46,54 @@ export default function Carousel({
         return currentIdx === 0;
     }
 
-    useEffect(() => {
-        if(keyControls) {
-            document.addEventListener('keydown', checkKey, false);
+    function goToNextSlide() {
+        if(!isLast()) {
+            setCurrentIdx(currentIdx + 1)
         }
+    }
 
-        return () => document.removeEventListener('keydown', checkKey, false);
+    function goToPrevSlide() {
+        if(!isFirst()) {
+            setCurrentIdx(currentIdx - 1);
+        }
+    }
+
+    // when key is pressed to capture next slide and previous slide events
+    function checkKey(evt) {
+        evt = evt || window.event;
+        switch(evt.keyCode) {
+            case KEYS.LEFT_ARROW:
+                goToPrevSlide();
+                break;
+            case KEYS.RIGHT_ARROW:
+                goToNextSlide();
+                break;
+            default:
+                break;
+        }
+    }
+
+    // Adding effect to attach event for key down to slide to next or previous slide
+    useEffect(() => {
+        keyControls && document.addEventListener('keydown', checkKey, false);
+        return () => keyControls && document.removeEventListener('keydown', checkKey, false);
     });
 
+    // Adding transition after initialzed to avoid transition happening while initalizng.
     useEffect(() => {
+        // don't add transition when width is not calculated
         if(width) {
-            slider.current.style.transition =  `transform ${animationDuration}ms ease-in`;
+            sliderRef.current.style.transition =  `transform ${animationDuration}ms ease-in`;
         }
-    }, [width, animationDuration])
+    },
+        // change only when width or animation duration changes
+        [width, animationDuration]
+    );
 
     return(
         <div className={cx('wrapper')} ref={ref}>
-            <div className={cx('slider')} style={sliderStyles} ref={slider}>
-                {data.map(Slide.bind(null, {selectedIdx: currentIdx, slideRenderer: itemRenderer, width}))}
+            <div className={cx('slider')} style={sliderStyles} ref={sliderRef}>
+                {data.map(Slide.bind(null, {selectedIdx: currentIdx, slideRenderer, width}))}
             </div>
             {!isLast() &&
                 <button className={cx('arrow-next')} onClick={goToNextSlide}>
@@ -96,7 +111,7 @@ export default function Carousel({
 
 Carousel.propTypes = {
     data: PropTypes.array.isRequired,
-    itemRenderer: PropTypes.func.isRequired,
+    slideRenderer: PropTypes.func.isRequired,
     selectedIdx: PropTypes.number,
     keyControls: PropTypes.bool,
     animationDuration: PropTypes.number

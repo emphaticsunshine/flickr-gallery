@@ -3,6 +3,7 @@
 @import '../../util/styles/breakpoints.scss';
 @import '../../util/styles/typography.scss';
 @import '../../util/styles/icons.scss';
+
 .overlay {
     position: fixed;
     background: $overlay-color;
@@ -11,7 +12,6 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    opacity: 0.8;
 }
 
 .content {

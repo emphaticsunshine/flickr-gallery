@@ -1,12 +1,17 @@
 import React from "react";
 import _get from "lodash.get";
+import classNames from "classnames/bind";
+
 import useFetch from "../../hooks/useFetch";
 import { API_KEY, APIS, PHOTOS_PER_PAGE } from '../../config';
 import Gallery from "../../components/Gallery";
 import Loader from "../../components/Loader";
 
 import styles from "./index.module.scss";
+const cx = classNames.bind(styles);
 
+
+// build array of objects with photo url
 const getPhotos = ({response}) => {
     const photos = _get(response, 'photos.photo', []);
     return photos.reduce((photos, photo) => {
@@ -31,13 +36,21 @@ export default function Place({ match }) {
     const photos = getPhotos(res);
     return (
         <>
-            <h1 className={styles.title}>
+            <h1 className={cx('title')}>
                 {match.params.id}
             </h1>
+
             {res.isLoading && <Loader />}
+
+            {/* If photo comes in response then display gallery of photos */}
             {!res.isLoading &&
                 <Gallery photos={photos} />
             }
+
+            {/* If Error occurs */}
+            {res.error && <div className={cx('error')}>
+                Something went wrong.
+            </div>}
 
         </>
     );

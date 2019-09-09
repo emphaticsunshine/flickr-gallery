@@ -4,7 +4,7 @@ import classNames from "classnames/bind";
 import PropTypes from "prop-types";
 import {ReactComponent as Close} from "../../assets/close.svg";
 
-import useScrollLock from "../../hooks/useScrollLock";
+import useLockBodyScroll from "../../hooks/useLockBodyScroll";
 
 import styles from "./index.module.scss";
 const cx = classNames.bind(styles);
@@ -15,10 +15,12 @@ export default function Modal({
     closeOnClickOutside,
     children
 }) {
-    useScrollLock();
+    // Lock the body scroll when Modal is mounted
+    useLockBodyScroll();
     return (
         isOpen && (
-            <Portal>
+            // use portal to mound it as last element to body
+            <Portal role="dialog">
                 <div className={cx('overlay')} onClick={closeOnClickOutside && hide} />
                 <div className={cx('content')}>
                     {children}
@@ -34,6 +36,7 @@ export default function Modal({
 Modal.propTypes = {
     hide: PropTypes.func.isRequired,
     isOpen: PropTypes.bool,
+    // enable it to close the Modal when clicked outside.
     closeOnClickOutside: PropTypes.bool,
     children: PropTypes.node,
 }

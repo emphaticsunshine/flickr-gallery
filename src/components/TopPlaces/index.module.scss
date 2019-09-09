@@ -1,0 +1,8 @@
+@import '../../util/styles/typography.scss';
+@import '../../util/styles/spacing.scss';
+
+.link {
+    font-size: $big;
+    margin: $small-spacing 0;
+    display: block;
+}

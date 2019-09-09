@@ -32,8 +32,19 @@
     }
 }
 
+.cell--error {
+    min-width: 200px;
+    &:hover {
+        transform: none;
+    }
+}
+
 .photo--big {
     width: 100%;
     margin: auto;
+}
+
+.img--error{
+    fill: $white;
 }
 
