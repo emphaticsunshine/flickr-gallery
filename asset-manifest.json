@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/flickr-gallery/static/css/main.78db6309.chunk.css",
+    "main.js": "/flickr-gallery/static/js/main.8e8f8c7e.chunk.js",
+    "main.js.map": "/flickr-gallery/static/js/main.8e8f8c7e.chunk.js.map",
+    "runtime~main.js": "/flickr-gallery/static/js/runtime~main.43a184ad.js",
+    "runtime~main.js.map": "/flickr-gallery/static/js/runtime~main.43a184ad.js.map",
+    "static/css/2.7fad5d03.chunk.css": "/flickr-gallery/static/css/2.7fad5d03.chunk.css",
+    "static/js/2.3c8ff772.chunk.js": "/flickr-gallery/static/js/2.3c8ff772.chunk.js",
+    "static/js/2.3c8ff772.chunk.js.map": "/flickr-gallery/static/js/2.3c8ff772.chunk.js.map",
+    "index.html": "/flickr-gallery/index.html",
+    "precache-manifest.3e9c08d6b10440f72784402252da3800.js": "/flickr-gallery/precache-manifest.3e9c08d6b10440f72784402252da3800.js",
+    "service-worker.js": "/flickr-gallery/service-worker.js",
+    "static/css/2.7fad5d03.chunk.css.map": "/flickr-gallery/static/css/2.7fad5d03.chunk.css.map",
+    "static/css/main.78db6309.chunk.css.map": "/flickr-gallery/static/css/main.78db6309.chunk.css.map",
+    "static/media/close.6f0a36b9.svg": "/flickr-gallery/static/media/close.6f0a36b9.svg",
+    "static/media/left-chevron.f2c88a64.svg": "/flickr-gallery/static/media/left-chevron.f2c88a64.svg",
+    "static/media/right-chevron.a1f35970.svg": "/flickr-gallery/static/media/right-chevron.a1f35970.svg"
+  }
+}
