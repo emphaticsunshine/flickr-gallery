@@ -2,9 +2,11 @@
   "name": "flickr-gallery",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://emphaticsunshine.github.io/flickr-gallery",
   "dependencies": {
     "@material-ui/core": "^4.4.0",
     "classnames": "^2.2.6",
+    "gh-pages": "^2.1.1",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
@@ -17,7 +19,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
