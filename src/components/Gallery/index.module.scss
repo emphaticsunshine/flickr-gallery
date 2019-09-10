@@ -3,7 +3,9 @@
 @import '../../util/styles/colors.scss';
 
 .grid {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 .cell {
