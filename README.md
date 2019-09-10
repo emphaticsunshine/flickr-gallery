@@ -12,6 +12,21 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * Better Unit Coverage.
 * More robust Grid as didn't spend a lot of time on getting Grid running.
 * Gestures for touch devices.
+* Code splitting (I didn't see it as very important because bundle is quiet small).
+
+## Features Added
+* Grid for images.
+* Flickr API call integration.
+* Used React as Adobe also uses React.
+* Created Carousel that navigates between previous and next image. Also enabled lazy loading and loaded neighboring
+images for better experience.
+* Used accessibility attributes.
+* Used SVG for icons.
+* Wrote unit tests for some of the components.
+* Added key navigation for Carousel.
+* Added transition for desktop breakpoint for image on hover.
+* Leveraged Flex for desktop for creating Grid and centering image for Carousel.
+* Hosted experience on Firebase.
 
 
 ## Available Scripts
@@ -41,42 +56,3 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
