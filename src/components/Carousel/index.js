@@ -48,38 +48,37 @@ export default function Carousel({
 
     function goToNextSlide() {
         if(!isLast()) {
-            setCurrentIdx(currentIdx + 1)
+            setCurrentIdx((currentIdx) => currentIdx + 1);
         }
     }
 
     function goToPrevSlide() {
         if(!isFirst()) {
-            setCurrentIdx(currentIdx - 1);
+            setCurrentIdx((currentIdx) => currentIdx - 1);
         }
     }
 
-    // when key is pressed to capture next slide and previous slide events
-    function checkKey(evt) {
-        evt = evt || window.event;
-        switch(evt.keyCode) {
-            case KEYS.LEFT_ARROW:
-                goToPrevSlide();
-                break;
-            case KEYS.RIGHT_ARROW:
-                goToNextSlide();
-                break;
-            default:
-                break;
-        }
-    }
 
     // Adding effect to attach event for key down to slide to next or previous slide
     useEffect(() => {
-        // remove the event if it exists
-        keyControls && document.removeEventListener('keydown', checkKey, false);
+        // when key is pressed to capture next slide and previous slide events
+        const checkKey = (evt) => {
+            evt = evt || window.event;
+            switch(evt.keyCode) {
+                case KEYS.LEFT_ARROW:
+                    goToPrevSlide();
+                    break;
+                case KEYS.RIGHT_ARROW:
+                    goToNextSlide();
+                    break;
+                default:
+                    break;
+            }
+        };
         keyControls && document.addEventListener('keydown', checkKey, false);
+
         return () => keyControls && document.removeEventListener('keydown', checkKey, false);
-    });
+    }, [currentIdx]);  //eslint-disable-line react-hooks/exhaustive-deps
 
     // Adding transition after initialzed to avoid transition happening while initalizng.
     useEffect(() => {

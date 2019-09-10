@@ -1,4 +1,18 @@
+# Flick Gallery
+
+## Description
+This project is to display images for cities from Flickr. Different cities can be configured to display inside src/config.json
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Future Scope:
+
+* Provide swiping capability for Carousel for touch devices. Could have utilized hooks provided from swipeable library.
+* Lazyloading the images.
+* Pagination or infinite scrolling.
+* Better Unit Coverage.
+* More robust Grid as didn't spend a lot of time on getting Grid running.
+* Gestures for touch devices.
+
 
 ## Available Scripts
 
