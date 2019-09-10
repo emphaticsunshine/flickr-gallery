@@ -20,14 +20,16 @@ export default function Modal({
     return (
         isOpen && (
             // use portal to mound it as last element to body
-            <Portal role="dialog">
-                <div className={cx('overlay')} onClick={closeOnClickOutside && hide} />
-                <div className={cx('content')}>
-                    {children}
+            <Portal>
+                <div role="dialog" id="dialog">
+                    <div className={cx('overlay')} onClick={closeOnClickOutside && hide} />
+                    <div className={cx('content')}>
+                        {children}
+                    </div>
+                    <button className={styles.close} onClick={hide} aria-label="Close">
+                        <Close className={cx('icon')} />
+                    </button>
                 </div>
-                <button className={styles.close} onClick={hide} aria-label="Close">
-                    <Close className={cx('icon')} />
-                </button>
             </Portal>
         )
     )

@@ -10,9 +10,13 @@ export default function useFetch(url, options) {
     useEffect(() => {
         (async() => {
             try {
-                const res = await fetch(url, options);
-                const json = await res.json();
-                setResponse(json);
+                if(url) {
+                    const res = await fetch(url, options);
+                    const json = await res.json();
+                    setResponse(json);
+                } else {
+                    setError('Please provide url');
+                }
             } catch(err) {
                 // set error if there was any error
                 setError(err);
